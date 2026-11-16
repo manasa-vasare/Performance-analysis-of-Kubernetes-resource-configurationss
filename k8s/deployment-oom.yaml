@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: performance-oom
+  namespace: k8s-performance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: performance-oom
+  template:
+    metadata:
+      labels:
+        app: performance-oom
+    spec:
+      containers:
+        - name: flask-app
+          image: k8s-performance:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "15Mi"  # Python 3.12 + Flask requires ~25-30Mi to run, triggering OOMKilled

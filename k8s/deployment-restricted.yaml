@@ -1,0 +1,37 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: performance-restricted
+  namespace: k8s-performance
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: performance-restricted
+
+  template:
+    metadata:
+      labels:
+        app: performance-restricted
+
+    spec:
+      containers:
+        - name: flask-app
+          image: k8s-performance:v1
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 5000
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
