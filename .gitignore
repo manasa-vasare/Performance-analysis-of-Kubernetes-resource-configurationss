@@ -1,0 +1,68 @@
+# Node & Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python
+backend/venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Matplotlib cache
+.matplotlib_cache/
+.matplotlib/
+
+# SQLite runtime database (experiment history is preserved as CSV in results/)
+backend/kubeperf.db
+
+# SQLite WAL/SHM temp files
+*.db-shm
+*.db-wal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Backups & Editor artifacts
+*.bak
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
